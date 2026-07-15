@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Eric Son | Portfolio</title>
+    <meta
+      name="description"
+      content="Glassmorphism portfolio — about, skills, projects, and education."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="home" class="is-booting">
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress__bar"></div>
+    </div>
+
+    <div class="bg-orbs" aria-hidden="true">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+      <span class="orb orb-3"></span>
+    </div>
+
+    <header class="site-header">
+      <a href="index.html#about" class="logo">Eric Son</a>
+      <div class="nav-cluster">
+        <button
+          class="nav-toggle glass-btn"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="nav-toggle__lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+        <nav id="site-nav" class="site-nav glass-panel" aria-label="Primary">
+          <span class="nav-pill" aria-hidden="true"></span>
+          <a href="#about" data-smooth-scroll class="active">About</a>
+          <a href="#experience" data-smooth-scroll>Experience</a>
+          <a href="#skills-education" data-smooth-scroll>Skills & Education</a>
+          <a href="#projects" data-smooth-scroll>Projects</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="about" class="section hero">
+        <div class="glass-panel hero-card reveal reveal--hero">
+          <div class="hero-photo reveal-child">
+            <img
+              id="hero-avatar"
+              src="./assets/avatar.svg"
+              alt="Profile photo"
+              width="220"
+              height="220"
+            />
+          </div>
+          <div class="hero-content">
+            <p class="eyebrow reveal-child">About me</p>
+            <h1 id="hero-name" class="reveal-child">Eric Son</h1>
+            <p id="hero-title" class="hero-title reveal-child"></p>
+            <p id="hero-bio" class="hero-bio reveal-child"></p>
+            <p id="about-preview" class="about-preview reveal-child"></p>
+            <div id="action-buttons" class="action-row reveal-child"></div>
+            <div class="page-cta reveal-child">
+              <a class="glass-btn" href="about.html">
+                More about me
+                <span class="cta-arrow" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="section">
+        <div class="section-intro reveal">
+          <h2>Experience</h2>
+        </div>
+        <div id="experience-list" class="experience-list"></div>
+      </section>
+
+      <section id="skills-education" class="section">
+        <div class="glass-panel skills-education reveal">
+          <div class="skills-education__col">
+            <div class="section-intro">
+              <h2>Skills</h2>
+            </div>
+            <div id="skills-grid" class="skills-grid"></div>
+          </div>
+          <div class="skills-education__divider" aria-hidden="true"></div>
+          <div class="skills-education__col">
+            <div class="section-intro">
+              <h2>Education</h2>
+            </div>
+            <div id="education-list" class="education-list"></div>
+            <div class="courses-panel">
+              <h3>Coursework</h3>
+              <div id="courses-list" class="pill-row"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-intro reveal section-intro--row">
+          <h2>Projects</h2>
+          <a class="glass-btn" href="projects.html">
+            View all projects
+            <span class="cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div id="projects-grid" class="projects-grid"></div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="glass-panel contact-card reveal">
+          <div class="contact-copy">
+            <p class="eyebrow">Get in touch</p>
+            <h2 id="contact-heading">Contact me</h2>
+          </div>
+          <div class="contact-actions">
+            <a id="contact-email-link" class="glass-btn primary contact-email-btn" href="#">
+              <span class="contact-email-icon" aria-hidden="true"></span>
+              <span class="contact-email-text">
+                <span class="contact-email-label">Email me</span>
+                <span id="contact-email-address" class="contact-email-address"></span>
+              </span>
+            </a>
+            <p class="contact-hint">Opens your email app with a ready-to-send message.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer glass-panel"></footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

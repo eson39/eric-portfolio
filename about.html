@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About | Eric Son</title>
+    <meta name="description" content="More about Eric — background, focus, and what I'm working toward." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-page="about" class="is-booting">
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress__bar"></div>
+    </div>
+
+    <div class="bg-orbs" aria-hidden="true">
+      <span class="orb orb-1"></span>
+      <span class="orb orb-2"></span>
+      <span class="orb orb-3"></span>
+    </div>
+
+    <header class="site-header">
+      <a href="index.html#about" class="logo">Eric Son</a>
+      <div class="nav-cluster">
+        <button
+          class="nav-toggle glass-btn"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+          aria-controls="site-nav"
+        >
+          <span class="nav-toggle__lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+        <nav id="site-nav" class="site-nav glass-panel" aria-label="Primary">
+          <span class="nav-pill" aria-hidden="true"></span>
+          <a href="index.html#about">About</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#skills-education">Skills & Education</a>
+          <a href="index.html#projects">Projects</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section page-hero">
+        <div class="glass-panel page-hero-card reveal reveal--hero">
+          <p class="eyebrow reveal-child">About</p>
+          <h1 class="reveal-child" id="about-headline"></h1>
+          <p class="hero-title reveal-child" id="about-role"></p>
+          <div id="action-buttons" class="action-row reveal-child"></div>
+          <div class="page-cta reveal-child">
+            <a class="glass-btn" href="index.html">
+              ← Back to home
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div id="about-story" class="about-story"></div>
+        <div id="about-highlights" class="about-highlights"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-intro reveal section-intro--row">
+          <h2>Projects</h2>
+          <a class="glass-btn" href="projects.html">
+            View all projects
+            <span class="cta-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer glass-panel"></footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

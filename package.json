@@ -1,0 +1,10 @@
+{
+  "name": "eric-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Glassmorphism portfolio in HTML, CSS, and JavaScript",
+  "scripts": {
+    "start": "npx --yes serve .",
+    "dev": "npx --yes serve ."
+  }
+}
