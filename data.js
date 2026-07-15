@@ -12,9 +12,9 @@ const site = {
       "Outside of coding I explore design, languages, and creative tools. That mix helps me ship work that feels both technical and human.",
     ],
     highlights: [
-      { label: "Focus", text: "Full-stack web, thoughtful UI, and systems basics" },
-      { label: "Currently", text: "Building portfolio projects and deepening CS foundations" },
-      { label: "Open to", text: "Internships, collabs, and interesting side projects" },
+      { label: "Focus", text: "Information Internetworks, Intelligence" },
+      { label: "Currently", text: "In my junior year of college/ working on my _ project" },
+      { label: "Open to", text: "Internships (Summer '27), collabs, and hackathons" },
     ],
   },
   links: {
@@ -23,7 +23,7 @@ const site = {
     resume: "./resume.pdf",
     email: "es4451@columbia.edu",
   },
-  avatar: "./assets/avatar.svg",
+  avatar: "./assets/avatar.png",
   contact: {
     heading: "Contact me",
     intro:
@@ -67,18 +67,6 @@ const site = {
   projects: [
     {
       title: "My Portfolio",
-      description:
-        "A personal portfolio with frosted-glass panels, soft motion, and a config-driven content model in vanilla JavaScript.",
-      longDescription:
-        "Built end-to-end with HTML, CSS, and vanilla JS — including custom smooth scrolling, scroll reveals, and a morphing nav pill. Designed as a reusable personal site shell.",
-      tags: ["HTML", "CSS", "JavaScript"],
-      image: "./assets/projects/portfolio.svg",
-      github: "https://github.com/eson39/eric-portfolio",
-      live: "./index.html",
-      featured: true,
-    },
-    {
-      title: "Token Optimizer (Work in Progress)",
       description:
         "A personal portfolio with frosted-glass panels, soft motion, and a config-driven content model in vanilla JavaScript.",
       longDescription:
@@ -152,16 +140,16 @@ const site = {
   ],
   experience: [
     {
-      role: "Software Engineering Intern",
-      company: "Infosys",
+      role: "Infosys",
+      company: "Software Engineering Intern",
       years: "June 2026 - Aug 2026",
       location: "Bangalore, India",
       logo: "./assets/companies/infosyslogo.jpeg",
       logoText: "CN",
     },
     {
-      role: "Software Engineering Intern",
-      company: "Cirqle",
+      role: "Cirqle",
+      company: "Software Engineering Intern",
       years: "Aug 2025 - Dec 2025",
       location: "New York, NY",
       logo: "./assets/companies/infosyslogo.jpeg",
@@ -180,6 +168,23 @@ const site = {
       degree: "Computer Engineering",
       years: "2024 - 2025",
       logo: "./assets/pictures/gt.png",
+    },
+  ],
+  extracurriculars: [
+    {
+      name: "Georgia Tech WebDev Club",
+      logo: "./assets/pictures/gtwebdev.png",
+      logoText: "WD",
+    },
+    {
+      name: "Georgia Tech VIP Program",
+      logo: "./assets/pictures/gtvip.jpeg",
+      logoText: "VIP",
+    },
+    {
+      name: "Silicon Jackets (DV Subteam)",
+      logo: "./assets/pictures/silicon.jpeg",
+      logoText: "SJ",
     },
   ],
   courses: [

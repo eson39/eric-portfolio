@@ -237,6 +237,8 @@ function renderEducation() {
     })
     .join("");
 
+  renderExtracurriculars();
+
   const courses = document.getElementById("courses-list");
   if (courses) {
     courses.innerHTML = site.courses
@@ -244,6 +246,30 @@ function renderEducation() {
       .join("");
     staggerPills(document.querySelector(".skills-education"));
   }
+}
+
+function renderExtracurriculars() {
+  const list = document.getElementById("extracurriculars-list");
+  if (!list) return;
+
+  const items = site.extracurriculars || [];
+  list.innerHTML = items
+    .map((item, index) => {
+      const isImage =
+        typeof item.logo === "string" &&
+        /\.(png|jpe?g|svg|webp|gif)$/i.test(item.logo);
+      const logoMark = isImage
+        ? `<img src="${escapeHtml(item.logo)}" alt="" width="28" height="28" />`
+        : escapeHtml(item.logoText || item.name.slice(0, 2).toUpperCase());
+
+      return `
+      <article class="glass-panel extra-card" data-reveal style="--i: ${index}">
+        <div class="extra-logo" aria-hidden="true">${logoMark}</div>
+        <h3>${escapeHtml(item.name)}</h3>
+      </article>
+    `;
+    })
+    .join("");
 }
 
 function renderContact() {

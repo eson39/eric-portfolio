@@ -1130,6 +1130,7 @@ main {
   margin-bottom: 1rem;
 }
 
+.skills-education .extracurriculars-panel,
 .skills-education .courses-panel {
   padding: 0;
   background: transparent;
@@ -1138,10 +1139,21 @@ main {
   backdrop-filter: none;
 }
 
+.skills-education .extracurriculars-panel {
+  margin-bottom: 1rem;
+}
+
+.skills-education .extracurriculars-panel h3,
 .skills-education .courses-panel h3 {
   margin: 0 0 0.85rem;
   font-family: var(--font-display);
   font-size: 1.1rem;
+}
+
+.skills-education__col:last-child .section-intro h2 {
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.85rem;
 }
 
 .skills-education__divider {
@@ -1182,7 +1194,8 @@ main {
 }
 
 .skills-education .skill-card,
-.skills-education .edu-card {
+.skills-education .edu-card,
+.skills-education .extra-card {
   background: rgba(10, 24, 36, 0.45);
   border: 1px solid rgba(61, 214, 198, 0.18);
   box-shadow:
@@ -1193,7 +1206,8 @@ main {
 }
 
 .skills-education .skill-card:hover,
-.skills-education .edu-card.is-visible:hover {
+.skills-education .edu-card.is-visible:hover,
+.skills-education .extra-card.is-visible:hover {
   border-color: rgba(61, 214, 198, 0.35);
   background: rgba(16, 40, 48, 0.55);
 }
@@ -1577,6 +1591,57 @@ body.lightbox-open {
   font-size: 0.92rem;
 }
 
+.extracurriculars-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.extra-card {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.7rem 0.9rem;
+}
+
+.extra-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: rgba(61, 214, 198, 0.14);
+  border: 1px solid rgba(61, 214, 198, 0.28);
+  color: #b8f3e8;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.55rem;
+  letter-spacing: 0.02em;
+  transition: transform 0.4s var(--ease-out), background 0.25s ease;
+}
+
+.extra-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.extra-card.is-visible:hover .extra-logo {
+  transform: rotate(-4deg) scale(1.05);
+  background: rgba(61, 214, 198, 0.22);
+}
+
+.extra-card h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.skills-education .extracurriculars-panel h3,
 .skills-education .courses-panel h3 {
   color: var(--text);
 }
