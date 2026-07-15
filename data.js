@@ -1,9 +1,9 @@
 const site = {
   name: "Eric Son",
   title: "Software Engineer",
-  bio: "I build thoughtful web experiences across the stack — from polished interfaces to reliable systems. Curious, detail-oriented, and always learning.",
+  bio: "Hello, I am a junior studying CS at Columbia University's School of Engineering and Applied Sciences, interested in full-stack web, systems programming, and tooling for AI coding agents.",
   aboutPreview:
-    "I care about clean interfaces, clear systems thinking, and building things people actually enjoy using.",
+    "This portfolio highlights my journey in exploring the space where software engineering, artificial intelligence, and interactive media meet.",
   aboutFull: {
     headline: "More about me",
     paragraphs: [
