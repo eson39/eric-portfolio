@@ -67,10 +67,8 @@ const site = {
   projects: [
     {
       title: "My Portfolio",
-      description:
-        "A personal portfolio with frosted-glass panels, soft motion, and a config-driven content model in vanilla JavaScript.",
       longDescription:
-        "Built end-to-end with HTML, CSS, and vanilla JS — including custom smooth scrolling, scroll reveals, and a morphing nav pill. Designed as a reusable personal site shell.",
+        "A custom glassmorphism-style portfolio site with custom smooth scrolling, scroll reveals, and a morphing navigation bar.",
       tags: ["HTML", "CSS", "JavaScript"],
       image: "./assets/projects/portfolio.svg",
       github: "https://github.com/eson39/eric-portfolio",
@@ -79,62 +77,52 @@ const site = {
     },
     {
       title: "Hungry Lion",
-      description:
-        "A lightweight kanban-style task board with local persistence and drag-and-drop columns.",
       longDescription:
-        "Simple boards you can rearrange by dragging cards between columns. State is saved in localStorage so your list survives a refresh.",
-      tags: ["JavaScript", "CSS", "LocalStorage"],
-      image: "./assets/projects/task-board.svg",
-      github: "https://github.com/eson39",
-      live: null,
+        "A web application for students to view and rate real-time dining hall menus anonymously",
+      tags: ["React", "Express.js", "MongoDB", "Node.js"],
+      image: "./assets/projects/hungrylion.png",
+      github: "https://github.com/eson39/hungry-lion",
+      live: "https://hungry-lion-blue.vercel.app/",
       featured: true,
     },
     {
       title: "Talking Point",
-      description:
-        "A location-aware weather dashboard with clean charts and saved cities.",
       longDescription:
-        "Fetches live weather data, lets you pin favorite cities, and presents forecasts in a glass-style dashboard layout.",
-      tags: ["JavaScript", "API", "CSS"],
-      image: "./assets/projects/weather.svg",
-      github: "https://github.com/eson39",
-      live: null,
+        "An invisible teleprompter to keep track of meeting notes and bullet points. Hidden from screen share.",
+      tags: ["JavaScript","Node.js", "HTML", "CSS"],
+      image: "./assets/projects/talking.png",
+      github: "https://github.com/eson39/talking-point",
+      live: "https://talking-point-website.vercel.app/",
       featured: false,
     },
     {
       title: "HTTP Web Server",
-      description:
-        "A searchable recipe notebook with tags, favorites, and a clean reading layout.",
       longDescription:
-        "Store recipes with ingredients and steps, filter by tags, and keep favorites pinned for quick weeknight cooking.",
-      tags: ["JavaScript", "CSS", "JSON"],
-      image: "./assets/projects/recipe-box.svg",
-      github: "https://github.com/eson39",
+        "A C-based HTTP/1.0 web server supporting HTTP GET requests, static file serving, and HTTP status codes using the Berkeley sockets API",
+      tags: ["C", "UNIX", "Git"],
+      image: "./assets/projects/sockets.png",
+      github: "https://gist.github.com/eson39/6ce3439515a1aa4f73a3ce35d1db8c28",
       live: null,
       featured: false,
     },
     {
       title: "Leetcode Randomizer",
-      description:
-        "A minimal spending tracker with monthly summaries and category breakdowns.",
       longDescription:
-        "Log expenses by category, see monthly trends at a glance, and export a simple summary for budgeting check-ins.",
+        "A chrome extension that turns the NeetCode 150 into focused practice sessions. Filter by topic and difficulty, then work through a hidden random queue one problem at a time.",
       tags: ["JavaScript", "HTML", "CSS"],
-      image: "./assets/projects/budget.svg",
-      github: "https://github.com/eson39",
+      image: "./assets/projects/leetcoderandomizer.png",
+      github: "https://github.com/eson39/leetcode-randomizer",
       live: "https://chromewebstore.google.com/detail/leetcode-randomizer/kpcfdadongbobogdkojpflldijmhllln",
       featured: false,
     },
     {
       title: "Single Cell Segmentation",
-      description:
-        "A focus timer with session history, ambient sound toggles, and streak tracking.",
       longDescription:
-        "Pomodoro-style sessions with streak tracking and optional ambient audio to help lock in during study blocks.",
-      tags: ["JavaScript", "HTML", "CSS"],
-      image: "./assets/projects/study-timer.svg",
-      github: "https://github.com/eson39",
-      live: null,
+        "A 2D U-Net segmentation model for single-cell detection across 7,590 fluorescence microscopy images of hamster kidney cells",
+      tags: ["Python", "Pytorch", "Machine Learning"],
+      image: "./assets/projects/cellseg.png",
+      github: "https://www.kaggle.com/code/eson10/bme-2d-department-project-eric-isabella",
+      live: "https://drive.google.com/file/d/1WqJY30OmAWm-vnOTA450vSFTNfo23ZiT/view",
       featured: false,
     },
   ],
@@ -152,8 +140,8 @@ const site = {
       company: "Software Engineering Intern",
       years: "Aug 2025 - Dec 2025",
       location: "New York, NY",
-      logo: "./assets/companies/infosyslogo.jpeg",
-      logoText: "TA",
+      logo: null,
+      logoText: "C",
     },
   ],
   education: [

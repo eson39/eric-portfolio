@@ -91,11 +91,7 @@ function renderAboutPage() {
   }
 }
 
-function projectCardHtml(project, index, { detailed = false } = {}) {
-  const description = detailed
-    ? project.longDescription || project.description
-    : project.description;
-
+function projectCardHtml(project, index) {
   const image = project.image
     ? `
       <button
@@ -116,7 +112,7 @@ function projectCardHtml(project, index, { detailed = false } = {}) {
       ${image}
       <div class="project-card__body">
         <h3>${escapeHtml(project.title)}</h3>
-        <p>${escapeHtml(description)}</p>
+        <p>${escapeHtml(project.longDescription || "")}</p>
         <div class="pill-row">
           ${project.tags.map((tag) => `<span class="pill">${escapeHtml(tag)}</span>`).join("")}
         </div>
@@ -143,7 +139,7 @@ function projectCardHtml(project, index, { detailed = false } = {}) {
   `;
 }
 
-function renderProjects({ limit = null, detailed = false } = {}) {
+function renderProjects({ limit = null } = {}) {
   const grid = document.getElementById("projects-grid");
   if (!grid) return;
 
@@ -154,7 +150,7 @@ function renderProjects({ limit = null, detailed = false } = {}) {
   }
 
   grid.innerHTML = list
-    .map((project, index) => projectCardHtml(project, index, { detailed }))
+    .map((project, index) => projectCardHtml(project, index))
     .join("");
 
   grid.querySelectorAll(".project-card").forEach(staggerPills);
@@ -1162,7 +1158,7 @@ function initPage() {
   } else if (page === "about") {
     renderAboutPage();
   } else if (page === "projects") {
-    renderProjects({ detailed: true });
+    renderProjects();
   }
 
   const smoothScroll = createSmoothScroll();
