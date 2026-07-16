@@ -1906,6 +1906,7 @@ body.lightbox-open {
 .skill-card,
 .project-card,
 .edu-card,
+.extra-card,
 .exp-card,
 .courses-panel,
 .section-intro.reveal,
@@ -1925,6 +1926,7 @@ body.lightbox-open {
 .skill-card.is-visible,
 .project-card.is-visible,
 .edu-card.is-visible,
+.extra-card.is-visible,
 .exp-card.is-visible,
 .courses-panel.is-visible,
 .highlight-card.is-visible,
@@ -1941,6 +1943,11 @@ body.lightbox-open {
 }
 
 .edu-card.is-visible:hover {
+  transform: translateX(6px) scale(1);
+  border-color: rgba(61, 214, 198, 0.28);
+}
+
+.extra-card.is-visible:hover {
   transform: translateX(6px) scale(1);
   border-color: rgba(61, 214, 198, 0.28);
 }
@@ -2038,6 +2045,7 @@ body.lightbox-open {
   .skill-card,
   .project-card,
   .edu-card,
+  .extra-card,
   .exp-card,
   .courses-panel,
   .reveal--hero .reveal-child,

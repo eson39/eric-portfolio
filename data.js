@@ -7,13 +7,13 @@ const site = {
   aboutFull: {
     headline: "More about me",
     paragraphs: [
-      "I'm a computer science student who enjoys turning ideas into polished, usable software. Most days you'll find me bouncing between UI details, backend logic, and the little polish that makes a project feel finished.",
-      "I like projects that teach me something new — whether that's a glassmorphism portfolio in vanilla JavaScript, a focus timer, or a tool that solves a small daily annoyance.",
-      "Outside of coding I explore design, languages, and creative tools. That mix helps me ship work that feels both technical and human.",
+      "I am a CS student that has built up their coding experience through school projects, extracurricular team work, and different internships environments. From shipping user-facing features in a fast-paced startup to experiencing seen how tools get built, tested, and maintained at scale in large organizations, I've learned to work with different kinds of teams, stay flexible in the role I take on, and pick up new tools when a project needs them.",
+      "I like building tools that address real problems I've faced in everyday life. Experimenting with unfamiliar technologies and ideas helps me to create software that bridge the interdiciplinary gap between engineering and other fields I care about.",
+      "In my freetime, I love playing sports (basketball, tennis, pickleball), practicing my cello, and playing open-world and competitive video games.",
     ],
     highlights: [
       { label: "Focus", text: "Information Internetworks, Intelligence" },
-      { label: "Currently", text: "In my junior year of college/ working on my _ project" },
+      { label: "Currently", text: "In my junior year of college/ working on my Cursor token optimizer project" },
       { label: "Open to", text: "Internships (Summer '27), collabs, and hackathons" },
     ],
   },
