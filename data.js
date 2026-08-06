@@ -20,7 +20,7 @@ const site = {
   links: {
     linkedin: "www.linkedin.com/in/eson10",
     github: "https://github.com/eson39",
-    resume: "./resume.pdf",
+    resume: "./blank.pdf",
     email: "es4451@columbia.edu",
   },
   avatar: "./assets/avatar.png",
