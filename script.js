@@ -118,16 +118,8 @@ function projectCardHtml(project, index) {
         </div>
         <div class="project-actions">
           ${
-            project.live
-              ? `<a class="glass-btn primary project-action" href="${escapeHtml(project.live)}" ${project.live.startsWith("http") ? 'target="_blank" rel="noopener noreferrer"' : ""}>
-                  ${icons.demo}
-                  View demo
-                </a>`
-              : ""
-          }
-          ${
             project.github
-              ? `<a class="glass-btn project-action" href="${escapeHtml(project.github)}" target="_blank" rel="noopener noreferrer">
+              ? `<a class="glass-btn primary project-action" href="${escapeHtml(project.github)}" target="_blank" rel="noopener noreferrer">
                   ${icons.github}
                   GitHub
                 </a>`
