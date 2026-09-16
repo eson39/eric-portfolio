@@ -22,7 +22,7 @@ function staggerPills(container) {
 function renderActionButtons(container = document.getElementById("action-buttons")) {
   if (!container) return;
   container.innerHTML = `
-    <a class="glass-btn primary" href="${escapeHtml(site.links.linkedin)}" target="_blank" rel="noopener noreferrer">
+    <a class="glass-btn" href="${escapeHtml(site.links.linkedin)}" target="_blank" rel="noopener noreferrer">
       ${icons.linkedin}
       LinkedIn
     </a>
@@ -91,7 +91,7 @@ function renderAboutPage() {
   }
 }
 
-function projectCardHtml(project, index) {
+function projectCardHtml(project, index, { compact = false } = {}) {
   const image = project.image
     ? `
       <button
@@ -108,7 +108,7 @@ function projectCardHtml(project, index) {
     : "";
 
   return `
-    <article class="glass-panel project-card" data-reveal style="--i: ${index}">
+    <article class="glass-panel project-card${compact ? " project-card--carousel" : ""}" data-reveal style="--i: ${index}">
       ${image}
       <div class="project-card__body">
         <h3>${escapeHtml(project.title)}</h3>
@@ -131,7 +131,7 @@ function projectCardHtml(project, index) {
   `;
 }
 
-function renderProjects({ limit = null } = {}) {
+function renderProjects({ limit = null, carousel = false } = {}) {
   const grid = document.getElementById("projects-grid");
   if (!grid) return;
 
@@ -139,6 +139,33 @@ function renderProjects({ limit = null } = {}) {
   if (limit != null) {
     const featured = list.filter((p) => p.featured);
     list = (featured.length ? featured : list).slice(0, limit);
+  }
+
+  if (carousel) {
+    const cards = list
+      .map((project, index) => projectCardHtml(project, index, { compact: true }))
+      .join("");
+
+    grid.className = "projects-carousel reveal";
+    grid.setAttribute("aria-label", "Featured projects carousel");
+    grid.innerHTML = `
+      <div class="projects-carousel__track">
+        ${cards}
+        ${cards}
+      </div>
+    `;
+
+    grid.querySelectorAll(".project-card").forEach((card) => {
+      card.classList.add("is-visible");
+      card.removeAttribute("data-reveal");
+      staggerPills(card);
+    });
+    return;
+  }
+
+  grid.classList.remove("projects-carousel");
+  if (!grid.classList.contains("projects-grid--full")) {
+    grid.className = "projects-grid";
   }
 
   grid.innerHTML = list
@@ -544,23 +571,16 @@ function setupScrollEffects() {
     const max = document.documentElement.scrollHeight - window.innerHeight;
     const t = max > 0 ? Math.min(1, Math.max(0, scrollTop / max)) : 0;
     const progress = t * 100;
-    const colors = mixStops(paletteStops, t);
     const shrink = Math.min(1, scrollTop / 140);
 
     if (progressBar) progressBar.style.width = `${progress}%`;
     header?.classList.toggle("is-scrolled", scrollTop > 24);
 
-    root.style.setProperty("--bg-deep", colors.deep);
-    root.style.setProperty("--bg-mid", colors.mid);
-    root.style.setProperty("--bg-glow", colors.glow);
-    root.style.setProperty("--bg-end", colors.end);
-    root.style.setProperty("--orb-1", colors.orb1);
-    root.style.setProperty("--orb-2", colors.orb2);
-    root.style.setProperty("--orb-3", colors.orb3);
-    root.style.setProperty("--grad-angle", `${160 + t * 40}deg`);
-    root.style.setProperty("--glow-x", `${50 + Math.sin(t * Math.PI * 2) * 18}%`);
-    root.style.setProperty("--glow-y", `${8 + t * 55}%`);
-    root.style.setProperty("--header-tint", colors.glow);
+    root.style.setProperty("--bg-deep", "#ffffff");
+    root.style.setProperty("--bg-mid", "#ffffff");
+    root.style.setProperty("--bg-glow", "#ffffff");
+    root.style.setProperty("--bg-end", "#ffffff");
+    root.style.setProperty("--header-tint", "#ffffff");
 
     if (header) {
       const basePadX = window.innerWidth >= 980 ? 2 : 1.25;
@@ -568,8 +588,7 @@ function setupScrollEffects() {
       const padX = basePadX - shrink * 0.2;
       const blur = 18 + shrink * 14;
       const sat = 120 + shrink * 30;
-      const alpha = 0.42 + shrink * 0.3;
-      const tintMix = 0.22 + t * 0.18;
+      const alpha = 0.72 + shrink * 0.2;
 
       header.style.setProperty("--header-pad-y", `${padY}rem`);
       header.style.setProperty("--header-pad-x", `${padX}rem`);
@@ -582,16 +601,16 @@ function setupScrollEffects() {
       header.style.setProperty("--header-nav-pad", `${0.4 - shrink * 0.1}rem`);
       header.style.setProperty(
         "--header-bg",
-        `color-mix(in srgb, ${colors.glow} ${Math.round(tintMix * 100)}%, ${hexToRgba(colors.deep, alpha)})`,
+        `rgba(255, 255, 255, ${alpha})`,
       );
       header.style.setProperty(
         "--header-border",
-        hexToRgba(colors.orb2, 0.18 + shrink * 0.12),
+        `rgba(15, 23, 42, ${0.08 + shrink * 0.08})`,
       );
       header.style.setProperty(
         "--header-shadow",
         shrink > 0.08
-          ? `0 10px 30px ${hexToRgba(colors.deep, 0.35 + shrink * 0.15)}`
+          ? `0 10px 30px rgba(15, 23, 42, ${0.06 + shrink * 0.06})`
           : "none",
       );
     }
@@ -641,44 +660,7 @@ function setupMagneticLinks(links) {
 }
 
 function setupGlassSpotlight() {
-  if (prefersReducedMotion) return;
-  if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-
-  let active = null;
-
-  document.addEventListener(
-    "pointermove",
-    (event) => {
-      const panel = event.target.closest(".glass-panel:not(.site-nav)");
-      if (active && active !== panel) {
-        active.classList.remove("is-spotlit");
-        active = null;
-      }
-      if (!panel) return;
-
-      if (active !== panel) {
-        active = panel;
-        panel.classList.add("is-spotlit");
-      }
-
-      const rect = panel.getBoundingClientRect();
-      const x = ((event.clientX - rect.left) / rect.width) * 100;
-      const y = ((event.clientY - rect.top) / rect.height) * 100;
-      panel.style.setProperty("--spot-x", `${x}%`);
-      panel.style.setProperty("--spot-y", `${y}%`);
-    },
-    { passive: true },
-  );
-
-  document.addEventListener(
-    "pointerleave",
-    () => {
-      if (!active) return;
-      active.classList.remove("is-spotlit");
-      active = null;
-    },
-    true,
-  );
+  // Cursor spotlight removed in favor of reveal shimmer + hover lift
 }
 
 function setupReveals() {
@@ -1015,21 +997,7 @@ function setupJumpFab(smoothScroll) {
     </span>
   `;
 
-  const overlay = document.createElement("div");
-  overlay.className = "time-skip";
-  overlay.hidden = true;
-  overlay.setAttribute("aria-hidden", "true");
-  overlay.innerHTML = `
-    <div class="time-skip__flash"></div>
-    <div class="time-skip__lines"></div>
-    <div class="time-skip__ring"></div>
-    <p class="time-skip__label">Time skip</p>
-  `;
-
-  document.body.append(button, overlay);
-
-  const label = overlay.querySelector(".time-skip__label");
-  let skipping = false;
+  document.body.append(button);
 
   function maxScroll() {
     return Math.max(
@@ -1055,80 +1023,12 @@ function setupJumpFab(smoothScroll) {
     );
   }
 
-  function easeInOutExpo(t) {
-    if (t === 0 || t === 1) return t;
-    return t < 0.5
-      ? Math.pow(2, 20 * t - 10) / 2
-      : (2 - Math.pow(2, -20 * t + 10)) / 2;
-  }
-
-  function rushScroll(destination, duration = 560) {
-    return new Promise((resolve) => {
-      const from = window.scrollY;
-      const distance = destination - from;
-      if (Math.abs(distance) < 2) {
-        smoothScroll.scrollTo(destination, { immediate: true });
-        resolve();
-        return;
-      }
-
-      // Longer distances stay snappy; short ones don’t drag
-      const ms = Math.min(720, Math.max(380, duration + Math.abs(distance) * 0.02));
-      const start = performance.now();
-
-      function frame(now) {
-        const t = Math.min(1, (now - start) / ms);
-        const y = from + distance * easeInOutExpo(t);
-        smoothScroll.scrollTo(y, { immediate: true });
-        if (t < 1) {
-          requestAnimationFrame(frame);
-        } else {
-          smoothScroll.scrollTo(destination, { immediate: true });
-          resolve();
-        }
-      }
-
-      requestAnimationFrame(frame);
-    });
-  }
-
-  async function runTimeSkip(direction, destination) {
-    if (skipping) return;
-    skipping = true;
-    button.classList.add("is-skipping");
-
-    if (prefersReducedMotion) {
-      smoothScroll.scrollTo(destination, { immediate: true });
-      skipping = false;
-      button.classList.remove("is-skipping");
-      updateMode();
-      return;
-    }
-
-    overlay.hidden = false;
-    overlay.dataset.dir = direction;
-    label.textContent = direction === "up" ? "Rewind" : "Time skip";
-    overlay.classList.remove("is-active");
-    void overlay.offsetWidth;
-    overlay.classList.add("is-active");
-    document.body.classList.add("is-time-skipping");
-
-    await rushScroll(destination);
-
-    document.body.classList.remove("is-time-skipping");
-    overlay.classList.remove("is-active");
-    overlay.hidden = true;
-    button.classList.remove("is-skipping");
-    skipping = false;
-    updateMode();
-  }
-
   button.addEventListener("click", () => {
     const mode = button.dataset.mode;
     if (mode === "top") {
-      runTimeSkip("up", 0);
+      smoothScroll.scrollTo(0);
     } else {
-      runTimeSkip("down", maxScroll());
+      smoothScroll.scrollTo(maxScroll());
     }
   });
 
@@ -1144,7 +1044,7 @@ function initPage() {
     renderHomeAbout();
     renderExperience();
     renderSkills();
-    renderProjects({ limit: site.homeProjectCount });
+    renderProjects({ carousel: true });
     renderEducation();
     renderContact();
   } else if (page === "about") {

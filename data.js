@@ -20,7 +20,7 @@ const site = {
   links: {
     linkedin: "www.linkedin.com/in/eson10",
     github: "https://github.com/eson39",
-    resume: "./blank.pdf",
+    resume: "./resume.pdf",
     email: "es4451@columbia.edu",
   },
   avatar: "./assets/avatar.png",
@@ -45,7 +45,8 @@ const site = {
         "C",
         "HTML",
         "CSS",
-        "Bash"
+        "Bash",
+        "SQL"
       ],
     },
     {
@@ -176,13 +177,14 @@ const site = {
     },
   ],
   courses: [
-    "Introduction to Artifical Intelligence",
+    "Introduction to Artificial Intelligence",
     "C++ Deep Dive",
-    "Systems Programming in C",
+    "Advanced Programming in C",
     "Data Structures & Algorithms",
     "Discrete Mathematics",
     "Fundamentals of Computer Systems",
-    "Analysis of Algorithms"
+    "Analysis of Algorithms",
+    "Introduction to Databases",
   ],
 };
 
