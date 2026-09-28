@@ -3,7 +3,7 @@ const site = {
   title: "Software Engineer",
   bio: "Hello, I am a junior studying CS at Columbia University's School of Engineering and Applied Sciences, interested in full-stack web, systems programming, and tooling for AI coding agents.",
   aboutPreview:
-    "This portfolio highlights my journey in exploring the space where software engineering, artificial intelligence, and interactive media meet.",
+    "This portfolio highlights my journey in bridging the gap where software engineering, artificial intelligence, and creative mediums meet.",
   aboutFull: {
     headline: "More about me",
     paragraphs: [
@@ -35,7 +35,7 @@ const site = {
   skills: [
     {
       title: "Programming Languages",
-      intro: "Languages I use for coursework, apps, and experiments.",
+      intro: "Languages I use for projects, coursework, internships.",
       items: [
         "JavaScript",
         "TypeScript",
@@ -51,17 +51,17 @@ const site = {
     },
     {
       title: "Frameworks & Tools",
-      intro: "Libraries and environments I work with regularly.",
-      items: ["React", "Next.js", "Express.js", "Git", "VS Code", "IntelliJ"],
+      intro: "Libraries and environments I use for projects, coursework, internships.",
+      items: ["React", "Node.js", "Next.js", "Express.js", "Git", "VS Code", "IntelliJ"],
     },
     {
       title: "Spoken Languages",
-      intro: "Languages I use at school, work, and with friends.",
+      intro: "Languages I speak at school, work, and with family.",
       items: ["English","Korean"],
     },
     {
       title: "Creative Tools",
-      intro: "Design and content tools for visuals and demos.",
+      intro: "Tools I use for visual design.",
       items: ["Figma", "Premiere Pro", "Capcut", "Canva", "Notion"],
     },
   ],
@@ -77,24 +77,14 @@ const site = {
       featured: true,
     },
     {
-      title: "Hungry Lion",
+      title: "News Next Door",
       longDescription:
-        "A web application for students to view and rate real-time dining hall menus anonymously",
-      tags: ["React", "Express.js", "MongoDB", "Node.js"],
-      image: "./assets/projects/hungrylion.png",
-      github: "https://github.com/eson39/hungry-lion",
-      live: "https://hungry-lion-blue.vercel.app/",
-      featured: true,
-    },
-    {
-      title: "Talking Point",
-      longDescription:
-        "An invisible teleprompter to keep track of meeting notes and bullet points. Hidden from screen share.",
-      tags: ["JavaScript","Node.js", "HTML", "CSS"],
-      image: "./assets/projects/talking.png",
-      github: "https://github.com/eson39/talking-point",
+        "Neighborhood news for NYC residents. Turns live city zoning applications and community board documents into plain-language briefings in 8 languages, with source-checked AI summaries, audio versions, and iMessage meeting reminders.",
+      tags: ["React", "TypeScript", "Node", "SQLite", "Grok API"],
+      image: "./assets/projects/news.png",
+      github: "https://github.com/haixinnn05/News-Next-Door",
       live: "https://talking-point-website.vercel.app/",
-      featured: false,
+      featured: true,
     },
     {
       title: "HTTP Web Server",
@@ -148,18 +138,23 @@ const site = {
   education: [
     {
       school: "Columbia University",
-      degree: "Computer Science",
+      degree: "B.S. Computer Science",
       years: "2025 - 2028",
       logo: "./assets/pictures/columbia.jpeg",
     },
     {
       school: "Georgia Institute of Technology",
-      degree: "Computer Engineering",
+      degree: "B.S. Computer Engineering",
       years: "2024 - 2025",
       logo: "./assets/pictures/gt.png",
     },
   ],
   extracurriculars: [
+    {
+      name: "Columbia Daily Spectator",
+      logo: "./assets/pictures/spectator.jpg",
+      logoText: "CDS",
+    },
     {
       name: "Georgia Tech WebDev Club",
       logo: "./assets/pictures/gtwebdev.png",
@@ -169,11 +164,6 @@ const site = {
       name: "Georgia Tech VIP Program",
       logo: "./assets/pictures/gtvip.jpeg",
       logoText: "VIP",
-    },
-    {
-      name: "Silicon Jackets (DV Subteam)",
-      logo: "./assets/pictures/silicon.jpeg",
-      logoText: "SJ",
     },
   ],
   courses: [
